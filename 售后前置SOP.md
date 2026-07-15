@@ -32,13 +32,13 @@
 | --- | --- | --- |
 | 订单成交/发货后 3 个工作日内 | 填写《售后前置登记表》 | — |
 | 登记后 1 个工作日内 | — | 认领任务,在《售后前置培训跟进表》建档 |
-| 登记后 3 个工作日内 | 用话术模板首次触达客户,介绍前置培训服务 | 按产品型号备齐培训材料 |
-| 客户同意培训后 2 个工作日内 | 建 WhatsApp 群,拉售后入群并介绍 | 与客户敲定培训时间,发 Zoom 链接(同步工厂对接人) |
-| 培训前 24 小时 | 协助提醒客户 | 在群里发培训提醒 + 议程 |
+| 登记后 3 个工作日内 | 用话术模板首次触达客户,介绍前置培训服务、拿到客户同意 | 按产品型号备齐培训材料 |
+| 客户同意培训后 2 个工作日内 | 建 WhatsApp 群,拉售后入群并介绍 | 进群后**直接与客户敲定培训时间**,发 Zoom 链接(同步工厂对接人) |
+| 培训前 24 小时 | — | 在群里发培训提醒 + 议程 |
 | 培训当天 | 视情况参加(重点客户建议参加) | 主持培训,全程录制,记录 Q&A |
 | 培训后 2 个工作日内 | — | 发出 Meeting Review 给客户;材料、录屏、Q&A 归档知识库 |
-| 培训后 7 天 | — | 群内回访,确认客户无遗留问题 |
-| 设备装机后 30 天 | 同步装机/使用情况 | 主动回访一次,确认设备运行正常 → 关闭任务 |
+| 培训后 7 天 | **群内回访**,确认客户无遗留问题 | 支持:回访中出现技术问题时进群解答 |
+| 设备装机后 30 天 | **主动回访一次**,确认设备运行正常 → 通知售后闭环 | 支持:确认技术无遗留后标记【已闭环】 |
 
 ---
 
@@ -46,8 +46,8 @@
 
 | 角色 | 职责 | 一句话定位 |
 | --- | --- | --- |
-| **业务员** | 订单信息登记、客户首次触达、建群建联、物流节点同步 | 客户信息的入口,负责"把客户带到售后面前" |
-| **售后工程师** | 认领任务、备料、约课、授课、出 Meeting Review、归档、回访、闭环 | 培训任务的责任人,从认领到闭环全程负责 |
+| **业务员** | 订单信息登记、客户首次触达、建群建联、物流节点同步、**培训后回访** | 客户信息的入口与关系维护人,负责"把客户带到售后面前",并在培训后回访客户 |
+| **售后工程师** | 认领任务、备料、**与客户约培训时间**、授课、出 Meeting Review、归档、闭环判定 | 培训执行的责任人,负责约时间到出纪要的全部专业动作 |
 | **工厂对接人** | 提供产品资料、参加/支持培训、解答深度技术问题 | 技术后盾,但资料必须先沉淀到我们自己的库里再用 |
 | **售后部负责人** | 周会复盘、超时任务催办、仪表盘指标检查 | 闭环的最后一道闸 |
 
@@ -68,14 +68,14 @@ flowchart TD
     G --> E
     F -- "同意培训" --> H["业务员建 WhatsApp 群<br>拉售后 + 客户 + 客户工程师"]
     H --> I["售后:备料(知识库优先,<br>缺料向工厂索取并先归档)"]
-    I --> J["售后:约定时间<br>发 Zoom 链接给客户 + 工厂"]
+    I --> J["售后:进群直接与客户约定时间<br>发 Zoom 链接给客户 + 工厂"]
     J --> K["培训执行:按议程授课<br>全程录制 + 记录 Q&A"]
-    K --> L["48 小时内发 Meeting Review<br>录屏 / Q&A / 材料归档知识库"]
-    L --> M["培训后 7 天群内回访"]
+    K --> L["售后:48 小时内发 Meeting Review<br>录屏 / Q&A / 材料归档知识库"]
+    L --> M["业务员:培训后 7 天群内回访"]
     M --> N{"有遗留问题?"}
-    N -- "有" --> O["补课 / 书面解答<br>更新 Review 和知识库"]
+    N -- "有(技术问题 @售后)" --> O["售后补课 / 书面解答<br>更新 Review 和知识库"]
     O --> M
-    N -- "无" --> P["装机后 30 天回访正常<br>→ 状态【已闭环】"]
+    N -- "无" --> P["业务员:装机后 30 天回访正常<br>→ 通知售后标记【已闭环】"]
 ```
 
 ---
@@ -128,14 +128,24 @@ flowchart TD
 
 1. 建 WhatsApp 群,命名规范:`MAYA-订单号-客户名-产品型号`(例:`MAYA-6968Y-Nnaemeka-Ultrasound`);
 2. 拉入:客户决策人、客户工程师/使用人、对接的售后工程师、业务员本人;
-3. 群内正式介绍售后工程师(附录 A 有介绍话术),明确"培训和技术问题从现在起由他/她负责";
-4. 之后培训排期以售后为主,业务员配合催客户、传话即可,**不需要业务员转述技术内容**。
+3. 群内正式介绍售后工程师(附录 A 有介绍话术),明确"**培训时间、培训内容、技术问题**从现在起都由他/她直接与客户对接";
+4. 介绍完成即交接:**与客户约培训时间、授课、发纪要由售后直接在群里完成,业务员不再居中传话**,也不需要转述任何技术内容。
 
-### 5.5 业务端红线
+### 5.5 第四步:培训后回访(培训后 7 天 + 装机后 30 天)
+
+培训执行由售后负责,但**回访由业务员来做**——业务员是客户的对接人,由业务员出面客户更受用,也便于维护关系、捕捉商机。
+
+- **培训后 7 天**:在 WhatsApp 群内回访(话术见附录 A),确认客户看完材料后没有新疑问;
+- **装机后 30 天**:再回访一次,确认设备运行正常、操作人员已上手;客户尚未装机的,改为"到货/装机后再计 30 天",并请售后在跟进表记下预计装机时间;
+- 回访中出现**技术问题**:业务员在群里 **@售后工程师** 处理,业务员负责把问题描述清楚、盯到有回应,**不自行解答技术问题**;
+- 两次回访均无遗留 → 业务员通知售后,由售后做闭环判定并标记**已闭环**(判定标准见 7.2)。
+
+### 5.6 业务端红线
 
 - 发货订单**不登记**就是漏单,周会通报;
 - 客户背景**乱填**导致售后方案错配,责任在业务端;
-- 建群后业务员**不能退群**,客户后续商务问题(备件采购、增购)仍是商机入口。
+- 建群后业务员**不能退群**,客户后续商务问题(备件采购、增购)仍是商机入口;
+- 培训后**该回访不回访**,导致遗留问题无人跟进、任务无法闭环,责任在业务端。
 
 ---
 
@@ -165,9 +175,9 @@ flowchart TD
 | **B:经销商** | 常见故障 Top10 排查、FAQ 手册讲解、装机流程、如何做二次培训 | 60 分钟 | FAQ 手册 + 排查流程图,目标让经销商自行消化 60% 的常见问题 |
 | **C:一般客户** | 开关机、基础操作、安全注意事项、清洁保养、**"遇到问题先拍视频再报修"** 的规范 | 45–60 分钟 | 简版操作卡(图多字少)+ 报修指引 |
 
-### 6.4 第四步:排期与邀约
+### 6.4 第四步:排期与邀约(售后直接对接客户,不经业务员转手)
 
-1. 与客户在 WhatsApp 群内敲定时间,**用双时区表述**(例:*Beijing 16:00 / Lagos 09:00, Jul 20*);
+1. 进群后**由售后直接与客户在 WhatsApp 群内敲定时间**,**用双时区表述**(例:*Beijing 16:00 / Lagos 09:00, Jul 20*);业务员不再负责约时间,售后无需等业务员传话;
 2. 创建 Zoom 会议,链接**同时发给客户和工厂对接人**(需要工厂技术支持的场次,提前跟工厂确认到场人员);
 3. 培训前 24 小时在群内发提醒 + 议程(附录 C);
 4. 常用市场时差速查(北京时间减去以下小时数即当地时间):
@@ -197,12 +207,13 @@ flowchart TD
    - **Q&A 整理进该产品的 FAQ 文档**(问题-答案-来源-日期),让钉钉 AI 能直接检索到;
 3. 更新《售后前置培训跟进表》:培训日期、讲师、参训人、录屏链接、Review 发送时间,状态置为 **Review 已发**。
 
-### 6.7 第七步:回访
+### 6.7 第七步:配合回访与闭环(回访主责在业务员,售后负责技术支持与闭环判定)
 
-- **培训后 7 天**:群内回访,话术见附录 B,确认没有新疑问、Open Item 是否已书面答复;
-- **装机后 30 天**:主动回访设备运行情况;客户还没装机的,改为"到货后 30 天"并在跟进表记下预计装机时间;
-- 回访发现新问题 → 按需补课或书面解答,补充进 FAQ,**回访重新计时**;
-- 两次回访均无问题 → 走第 7 节的闭环判定。
+回访动作由业务员发起(培训后 7 天、装机后 30 天,见 5.5),售后在此环节的职责是:
+
+- 业务员回访中 **@售后** 反馈的技术问题:及时进群解答,或按需补课/书面解答,补充进 FAQ,**并让相关回访重新计时**;
+- 把 Open Item 是否已书面销项、录屏/材料/FAQ 是否已归档纳入自查;
+- 收到业务员"两次回访无遗留"的通知后,按 7.2 的四条标准做**闭环判定**,达标才把状态改为**已闭环**。
 
 ---
 
@@ -284,11 +295,13 @@ stateDiagram-v2
 | 2 | 认领任务并建档 | 售后工程师 | 登记后 1 个工作日 |
 | 3 | 首次触达客户 | 业务员 | 登记后 3 个工作日 |
 | 4 | 建 WhatsApp 群并介绍售后 | 业务员 | 客户同意后 2 个工作日 |
-| 5 | 培训材料备齐 | 售后工程师 | 排期确定前 |
-| 6 | 首次培训完成 | 售后工程师 | 力争设备到港前;最晚装机前 |
-| 7 | Meeting Review 发出 + 归档 | 售后工程师 | 培训后 48 小时 |
-| 8 | 第一次回访 | 售后工程师 | 培训后 7 天 |
-| 9 | 第二次回访并闭环 | 售后工程师 | 装机后 30 天 |
+| 5 | 与客户约定培训时间 | 售后工程师 | 进群后 2 个工作日内 |
+| 6 | 培训材料备齐 | 售后工程师 | 排期确定前 |
+| 7 | 首次培训完成 | 售后工程师 | 力争设备到港前;最晚装机前 |
+| 8 | Meeting Review 发出 + 归档 | 售后工程师 | 培训后 48 小时 |
+| 9 | 第一次回访 | 业务员 | 培训后 7 天 |
+| 10 | 第二次回访 | 业务员 | 装机后 30 天 |
+| 11 | 闭环判定并标记已闭环 | 售后工程师 | 收到"两次回访无遗留"后 |
 
 ---
 
@@ -300,23 +313,31 @@ stateDiagram-v2
 >
 > Thank you for choosing MAYA MEDICAL. While your [product model] is on the way, we'd like to offer you a **free online training session** — covering operation, daily maintenance and troubleshooting — so your team can start using the equipment the day it arrives.
 >
-> Could you let me know:
-> 1. Who will operate the equipment (doctor / technician / engineer)?
-> 2. Your preferred time for a 1-hour Zoom session?
->
-> Our after-sales engineer [Engineer Name] will take care of everything. Looking forward to your reply!
+> Could you let me know who will operate the equipment (doctor / technician / engineer)? Our after-sales engineer [Engineer Name] will then contact you directly to arrange a convenient time. Looking forward to your reply!
 
-中文要点(供业务员理解):免费培训是**服务卖点**,强调"设备到货当天就能用",并拿到两个关键信息——谁来参训、什么时间方便。
+中文要点(供业务员理解):免费培训是**服务卖点**,强调"设备到货当天就能用";这一步只需拿到"谁来参训",**不用敲具体时间**——明确告诉客户售后会直接联系他约时间。
 
 ### A2. 售后工程师入群介绍(英文)
 
-> Hi everyone, this is [Engineer Name] from MAYA MEDICAL after-sales team. He/She will be your dedicated technical contact for [product model] — training, installation guidance and any technical questions. Feel free to reach out anytime in this group.
+> Hi everyone, this is [Engineer Name] from MAYA MEDICAL after-sales team. He/She will be your dedicated technical contact for [product model] — **arranging the training time, running the session**, and helping with installation and any technical questions. [Engineer Name] will message you shortly about a convenient time. Feel free to reach out anytime in this group.
 
 ### A3. 无响应跟进(D+2 / D+5)
 
-> D+2: Hi [Name], just following up on the free training for your [product model]. It takes only 1 hour online and will save your team a lot of time later. When would suit you this week or next?
+> D+2: Hi [Name], just following up on the free training for your [product model]. It takes only 1 hour online and will save your team a lot of time later. Could you let me know who will operate the equipment, so we can get it arranged?
 >
-> D+5(换通道,电话/邮件):Hello [Name], this is [Sales Name] from MAYA MEDICAL. I wanted to make sure you received our training offer for your [product model] before it arrives. Please let me know a good time — we'll arrange everything.
+> D+5(换通道,电话/邮件):Hello [Name], this is [Sales Name] from MAYA MEDICAL. I wanted to make sure you received our free training offer for your [product model] before it arrives. Just reply here and our engineer will take care of the rest.
+
+### A4. 培训后 7 天回访(英文)
+
+> Hi [Name], it's been a week since our training on [product model]. Has your team had any questions while reviewing the materials? A short video of any issue helps us a lot. Also, any update on the shipment/installation? We're here to help anytime.
+
+要点:关系性回访由业务员出面;客户提到技术问题就 **@售后** 进群处理。
+
+### A5. 装机后 30 天回访(英文)
+
+> Hi [Name], your [product model] has been running for about a month now. Is everything working well? Any questions from the operators? If you need a refresher session for new staff, we're happy to arrange one.
+
+要点:确认设备运行正常、操作人员上手;无问题则通知售后闭环,有增购/备件需求顺势跟进。
 
 ---
 
@@ -332,17 +353,15 @@ stateDiagram-v2
 >
 > Agenda: product overview → live operation demo → maintenance → Q&A. Please invite the colleagues who will operate the equipment. The session will be recorded and shared with you afterwards.
 
-### B2. 培训前 24 小时提醒(英文)
+### B2. 约时间(进群后主动发起,英文)
+
+> Hi [Name], this is [Engineer Name] from MAYA MEDICAL. I'll be running your training for [product model]. It's a 1-hour online session over Zoom. Which day and time works best for your team next week? For reference, we're available around 15:00–18:00 Beijing time (morning your side).
+
+### B3. 培训前 24 小时提醒(英文)
 
 > Friendly reminder: our training session for [product model] is tomorrow at 16:00 Beijing / 09:00 Lagos. Zoom link: [link]. Please test your network and join 5 minutes early. See you there!
 
-### B3. 培训后 7 天回访(英文)
-
-> Hi [Name], it's been a week since our training on [product model]. Has your team had any questions while reviewing the materials? Also, any update on the shipment/installation? We're here to help anytime.
-
-### B4. 装机后 30 天回访(英文)
-
-> Hi [Name], your [product model] has been running for about a month now. Is everything working well? Any questions from the operators? If you need a refresher session for new staff, we're happy to arrange one.
+> 回访话术(培训后 7 天 / 装机后 30 天)由业务员发起,见附录 A4、A5。
 
 ---
 
